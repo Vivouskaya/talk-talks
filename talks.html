@@ -1,0 +1,66 @@
+<head>
+
+  <title>busapp</title>
+ 
+</head>
+
+<body>
+ 
+ 	{{> header}}
+ 	<hr>
+ 		{{> loginButtons}}
+ 	<hr>
+ 	<div class="inner">
+ 		{{> newTalk}}
+ 	</div>
+  	<div class="container">
+  	
+  		{{> talksList}}
+  	
+  	</div>
+
+</body>
+
+<template name="header">
+  
+  <h1> Talk & Talks </h1>
+  
+</template>
+
+<template name="talksList">
+  
+	<ul>
+	 <div class="container">
+	  {{#each talks}}
+	  
+	  	
+	  	  <div class="well">
+	  	  	<p>
+	  			{{message}}
+	  		</p>
+	  	  	<div class="inner-footer">
+		  	 	by {{username}}
+		  	  	({{votes}} votes)
+		  	  	<input type="button" class="upvote"
+		  	  		   value="Upvote" />
+		  	  	<input type="button" class="downvote"
+		  	  		   value="Downvote" />
+	  	  	</div>
+	  	  </div>
+	  {{/each}}
+	 </div>
+	</ul>
+
+</template>
+
+<template name="newTalk">
+    
+    <div id="input" class="well">
+        <strong>Your message</strong>
+        <textarea rows="3" id="newMessage"></textarea>
+        <input type="text" placeholder="Your name..." id="username" />
+        <input id="send" type="button" value="Add" />
+        <input id="votes" type="hidden" />
+    </div>
+
+</template>
